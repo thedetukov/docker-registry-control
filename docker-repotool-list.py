@@ -38,7 +38,7 @@ def catalogs_repositories_tags_data():
 			catalog_name = data_tags_repositories_content['name']
 			
 			for tag_name in data_tags_repositories_content['tags']:
-				time_url = docker_registry_api_url + "/v2/%s/manifests/%s" % (catalogs_name, tag_name)  
+				time_url = docker_registry_api_url + "/v2/%s/manifests/%s" % (catalog_name, tag_name)  
 				time_response = requests.get(time_url, auth = credentials)
 				time_repositories_content = time_response.json()
 				time_repositories = time_repositories_content['history']
