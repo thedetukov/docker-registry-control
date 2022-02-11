@@ -31,22 +31,22 @@ def catalogs_repositories_tags_data():
 		catalog_repositories_content = catalog_response.json()
 		mass_catalog_repositories_content = catalog_repositories_content['repositories']
 		
-		for tags in mass_catalog_repositories_content:
-			data_tags_url= docker_registry_api_url + "/v2/%s/tags/list" % tags
+		for repo_name in mass_catalog_repositories_content:
+			data_tags_url= docker_registry_api_url + "/v2/%s/tags/list" % repo_name
 			tags_data_response = requests.get(data_tags_url, auth = credentials)
 			data_tags_repositories_content = tags_data_response.json()
-			catalogs_name = data_tags_repositories_content['name']
+			catalog_name = data_tags_repositories_content['name']
 			
-			for name_tags in data_tags_repositories_content['tags']:
-				time_url = docker_registry_api_url + "/v2/%s/manifests/%s" % (catalogs_name, name_tags)  
+			for tag_name in data_tags_repositories_content['tags']:
+				time_url = docker_registry_api_url + "/v2/%s/manifests/%s" % (catalog_name, tag_name)  
 				time_response = requests.get(time_url, auth = credentials)
 				time_repositories_content = time_response.json()
 				time_repositories = time_repositories_content['history']
 				dict_time_repositories = time_repositories[0]
 				dict_tegs_repositories = dict_time_repositories['v1Compatibility']
 				data_time_repositories = json.loads(dict_tegs_repositories)
-				tags_date = data_time_repositories['created']
-				print(catalogs_name+'/'+name_tags, tags_date)
+				tag_date = data_time_repositories['created']
+				print(catalog_name+'/'+tag_name, tag_date)
 		
 	except Exception as ex:
 		print("Attempt failure. {0}".format(ex), file=sys.stderr)
