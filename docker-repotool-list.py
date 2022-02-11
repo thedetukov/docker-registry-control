@@ -43,8 +43,8 @@ def catalogs_repositories_tags_data():
 				time_repositories_content = time_response.json()
 				time_repositories = time_repositories_content['history']
 				dict_time_repositories = time_repositories[0]
-				dict_tegs_repositories = dict_time_repositories['v1Compatibility']
-				data_time_repositories = json.loads(dict_tegs_repositories)
+				dict_tags_repositories = tags_time_repositories['v1Compatibility']
+				data_time_repositories = json.loads(dict_tags_repositories)
 				tag_date = data_time_repositories['created']
 				print(catalog_name+'/'+tag_name, tag_date)
 		
