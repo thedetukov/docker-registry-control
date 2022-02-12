@@ -10,7 +10,10 @@ Tags and Repositories Catalogs - this application uses two methods:
 ```shell
 python3 -m venv .venv
 source .venv/bin/activate
-To start the program, enter the following environment variables:url,login,password.
+To start the program, enter:
+- (install the library requsts) pip install requests;
+- the following environment variables:url,login,password.
+
 For example: export DOCKER_REGISTRY_API_URL="url"
              export LOGIN_USER="login"
              export PASSWORD_USER="password"
