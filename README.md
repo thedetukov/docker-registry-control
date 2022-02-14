@@ -10,6 +10,8 @@ Tags and Repositories Catalogs - this application uses two methods:
 ```shell
 python3 -m venv .venv
 source .venv/bin/activate
+pip install --upgrade pip
+
 To start the program, enter:
 - (install the library requsts) pip install requests;
 - the following environment variables:url,login,password.
