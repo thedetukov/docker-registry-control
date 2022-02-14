@@ -13,7 +13,7 @@ source .venv/bin/activate
 pip install --upgrade pip
 
 To start the program, enter:
-- (install the library requsts) pip install requests;
+- install the library requsts) pip install requests;
 - the following environment variables:url,login,password.
 
 For example: export DOCKER_REGISTRY_API_URL="url"
