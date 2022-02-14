@@ -26,9 +26,9 @@ def main(docker_registry_api_url: str, login_user: str, password_user: str):
 				manifest_response = requests.head(manifest_api_url, headers =  headers, auth = credentials)
 				manifest_docker_content_digest = manifest_response.headers['Docker-Content-Digest']
 				manifest_last_modified = manifest_response.headers['Last-Modified']
-				converted_manifest_last_modified = datetime.datetime.strptime(manifest_last_modified, "%a, %d %b %Y %H:%M:%S %Z").strftime("%Y-%m-%dT%H:%M:%S")
+				converted_manifest_last_modified = datetime.datetime.strptime(manifest_last_modified, "%a, %d %b %Y %H:%M:%S %Z").strftime("%Y-%m-%dT%H:%M:%S")[:-3]
 
-				print(catalog_name + '/manifest:' + tag_name, converted_manifest_last_modified)
+				print(catalog_name + '/manifest:' + tag_name, converted_manifest_last_modified+"Z")
 				print(manifest_docker_content_digest)			
 		
 	except Exception as ex:
