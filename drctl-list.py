@@ -7,7 +7,7 @@ import sys
 import datetime 
 
 
-def main(docker_registry_api_url: str, login_user: str, password_user: str):
+def main(docker_registry_control_url: str, docker_registry_control_user: str, docker_registry_control_password: str):
 	
 	try:
 		credentials = HTTPBasicAuth(login_user, password_user)
@@ -44,13 +44,13 @@ def _get_environ_variable(name: str, exit_code: int):
 if __name__ == "__main__":
 	import sys
 
-	docker_registry_api_url = _get_environ_variable('DOCKER_REGISTRY_API_URL', 1)
-	login_user = _get_environ_variable('LOGIN_USER', 2)
-	password_user = _get_environ_variable('PASSWORD_USER', 3)
+	docker_registry_control_url = _get_environ_variable('DOCKER_REGISTRY_CONTROL_URL', 1)
+	docker_registry_control_user = _get_environ_variable('DOCKER_REGISTRY_CONTROL_USER', 2)
+	docker_registry_control_password = _get_environ_variable('DOCKER_REGISTRY_CONTROL_PASSWORD', 3)
 	
 
 	# launch application loop
-	main(docker_registry_api_url, login_user, password_user)
+	main(docker_registry_control_url, docker_registry_control_user, docker_registry_control_password)
 
 
 
