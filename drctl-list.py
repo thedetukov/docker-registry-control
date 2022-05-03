@@ -45,8 +45,8 @@ if __name__ == "__main__":
 	import sys
 
 	docker_registry_api_url = _get_environ_variable('DOCKER_REGISTRY_API_URL', 1)
-	login_user = _get_environ_variable('LOGIN_USER', 2)
-	password_user = _get_environ_variable('PASSWORD_USER', 3)
+	login_user = _get_environ_variable('DOCKER_REGISTRY_CONTROL_USER', 2)
+	password_user = _get_environ_variable('DOCKER_REGISTRY_CONTROL_PASSWORD', 3)
 	
 
 	# launch application loop
