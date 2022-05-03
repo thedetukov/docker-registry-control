@@ -11,7 +11,7 @@ pip install --requirement requirements.txt
 
 ### Launch
 ```shell
-export DOCKER_REGISTRY_CONTROL_URL="url"
+export DOCKER_REGISTRY_API_URL="url"
 export DOCKER_REGISTRY_CONTROL_USER="login"
 export DOCKER_REGISTRY_CONTROL_PASSWORD="xxxxxxxx"
 ./drctl-list.py | tee result.txt
